@@ -1,12 +1,14 @@
-const { Schema } = require('mongoose')
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-const Game = new Schema(
+const Comment = new Schema(
   {
-    comment: { type: String }
-    // Genre: { type: String, required: true }
-    // publisher_id: { type: Schema.Types.ObjectId, ref: 'publisher_id' }
+    comment: { type: String },
+    letter_id: { type: Schema.Types.ObjectId, ref: 'letter_id' }
   },
   { timestamps: true }
 )
 
-module.exports = Game
+// module.exports = Comment
+
+module.exports = mongoose.model('comments', Comment)
