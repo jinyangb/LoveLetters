@@ -1,73 +1,154 @@
-const Plant = require('../models/plant')
+const Letter = require('../models/letter')
+const Comment = require('../models/comments')
 
-const createPlant = async (req, res) => {
+const createLetter = async (req, res) => {
   try {
-    const plant = await new Plant(req.body)
-    await plant.save()
+    const letter = await new Letter(req.body)
+    await letter.save()
     return res.status(201).json({
-      plant
+      letter
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
   }
 }
 
-const getAllPlants = async (req, res) => {
+const getAllLetters = async (req, res) => {
   try {
-    const plants = await Plant.find()
-    return res.status(200).json({ plants })
+    const letters = await Letter.find()
+    return res.status(200).json({ letters })
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
-const getPlantById = async (req, res) => {
+const getLetterById = async (req, res) => {
   try {
     const { id } = req.params
-    const plant = await Plant.findById(id)
-    if (plant) {
-      return res.status(200).json({ plant })
+    const letter = await Letter.findById(id)
+    if (letter) {
+      return res.status(200).json({ letter })
     }
-    return res.status(404).send('Plant with the specified ID does not exists')
+    return res.status(404).send('Letter with the specified ID does not exists')
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
-const updatePlant = async (req, res) => {
+const updateLetter = async (req, res) => {
   try {
     const { id } = req.params
-    await Plant.findByIdAndUpdate(id, req.body, { new: true }, (err, plant) => {
-      if (err) {
-        res.status(500).send(err)
+    await Letter.findByIdAndUpdate(
+      id,
+      req.body,
+      { new: true },
+      (err, letter) => {
+        if (err) {
+          res.status(500).send(err)
+        }
+        if (!letter) {
+          res.status(500).send('Letter not found!')
+        }
+        return res.status(200).json(plant)
       }
-      if (!plant) {
-        res.status(500).send('Plant not found!')
-      }
-      return res.status(200).json(plant)
+    )
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteLetter = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Letter.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Letter deleted')
+    }
+    throw new Error('Letter not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+// comments section
+const createComment = async (req, res) => {
+  try {
+    const comment = await new Comment(req.body)
+    await comment.save()
+    return res.status(201).json({
+      comment
     })
   } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getAllComments = async (req, res) => {
+  try {
+    const comments = await Comment.find()
+    return res.status(200).json({ comments })
+  } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
-const deletePlant = async (req, res) => {
+const getCommentById = async (req, res) => {
   try {
     const { id } = req.params
-    const deleted = await Plant.findByIdAndDelete(id)
-    if (deleted) {
-      return res.status(200).send('Plant deleted')
+    const comment = await Comment.findById(id)
+    if (comment) {
+      return res.status(200).json({ comment })
     }
-    throw new Error('Plant not found')
+    return res.status(404).send('Comment with the specified ID does not exists')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const updateComment = async (req, res) => {
+  try {
+    const { id } = req.params
+    await Comment.findByIdAndUpdate(
+      id,
+      req.body,
+      { new: true },
+      (err, comment) => {
+        if (err) {
+          res.status(500).send(err)
+        }
+        if (!comment) {
+          res.status(500).send('Comment not found!')
+        }
+        return res.status(200).json(comment)
+      }
+    )
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteComment = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Comment.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Comment deleted')
+    }
+    throw new Error('Comment not found')
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
 module.exports = {
-  createPlant,
-  getAllPlants,
-  getPlantById,
-  updatePlant,
-  deletePlant
+  createLetter,
+  getAllLetters,
+  getLetterById,
+  updateLetter,
+  deleteLetter,
+  createComment,
+  getAllComments,
+  getCommentById,
+  updateComment,
+  deleteComment
 }

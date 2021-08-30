@@ -4,13 +4,13 @@ const router = Router()
 
 router.get('/', (req, res) => res.send('This is root!'))
 
-router.post('/plants', controllers.createPlant)
+router.post('/letters', controllers.createLetter)
 
-router.get('/plants', controllers.getAllPlants)
+router.get('/letters', controllers.getAllLetters)
 
-router.get('/plants/:id', controllers.getPlantById)
+router.get('/letters/:id', controllers.getLetterById)
 
-router.put('/plants/:id', controllers.updatePlant)
-router.delete('/plants/:id', controllers.deletePlant)
+router.put('/letters/:id', controllers.updateLetter)
+router.delete('/letters/:id', controllers.deleteLetter)
 
 module.exports = router
