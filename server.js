@@ -1,6 +1,8 @@
 const express = require('express')
 const routes = require('./routes')
 const db = require('./db')
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
 // require() imports and middleware here ^ ///////
 
