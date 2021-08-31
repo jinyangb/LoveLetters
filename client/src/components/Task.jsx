@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Tasks = (props) => {
+const Task = (props) => {
   return (
     <ul>
-      {props.games.map((game, index) => (
+      {props.comments.map((comment, index) => (
         <li key={index}>
-          <button onClick={() => props.removeGame(index)}>x</button> {game.name}
+          <button onClick={() => props.removeComment(index)}>x</button> {comment.name}
         </li>
       ))}
     </ul>
   )
 }
 
-export default Tasks
+export default Task

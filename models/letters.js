@@ -10,6 +10,4 @@ const Letter = new Schema(
   { timestamps: true }
 )
 
-// module.exports = Letter
-
 module.exports = mongoose.model('letters', Letter)

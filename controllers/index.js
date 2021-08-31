@@ -1,4 +1,4 @@
-const Letter = require('../models/letter')
+const Letter = require('../models/letters')
 const Comment = require('../models/comments')
 
 const createLetter = async (req, res) => {

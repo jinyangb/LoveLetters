@@ -6,8 +6,8 @@ import { useHistory } from 'react-router'
 import axios from 'axios'
 
 
-const TodoList = ({ newLetter, handleChange, addLetter }) => {
-  const [letters, manageLetters] = useState([])
+const TodoList = ({ newLetter, handleChange, addNewLetter }) => {
+  const [games, manageGames] = useState([])
   const [input, setInput] = useState('')
   const history = useHistory()
 
@@ -16,11 +16,12 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
   const addNewLetter = async (formdata) => {
     // let myNewList = [...letters, newLetter]
     // manageGames(myNewList)
+    console.log('newComment', formdata)
     try {
       const res = await axios.post(
         process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/letters`
-          : 'http://localhost:3001/letters',
+          ? `${window.location.origin}/comments`
+          : 'http://localhost:3001/comments',
         formdata
       )
       return res.data
@@ -30,10 +31,10 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
 
   }
 
-  const removeLetter = (index) => {
-    let myNewPost = [...letters]
+  const removeComment = (index) => {
+    let myNewPost = [...comments]
     myNewPost.splice(index, 1)
-    manageLetters(myNewPost)
+    manageGames(myNewPost)
   }
 
   // const handleOtherChange = (event) => {
@@ -43,7 +44,7 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('handlesubmit')
-    addNewLetter(newLetter)
+    addNewComment(newComment)
     
 
   }
@@ -52,7 +53,7 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
       <form onSubmit={handleSubmit} >
         <TextInput
           type="text"
-          value={newLetter.name}
+          value={newComment.name}
           onChange={handleChange}
           name={'name'}
           placeholder={'name'}
@@ -62,7 +63,7 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
         />
         <TextInput
           type="text"
-          value={newLetter.date}
+          value={newComment.date}
           onChange={handleChange}
           name={'img'}
           placeholder={'image'}
@@ -71,7 +72,7 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
         />
         <TextInput
           type="text-area"
-          value={newLetter.body}
+          value={newComment.body}
           onChange={handleChange}
           name={'console'}
           placeholder={'console'}
@@ -80,7 +81,7 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
         />
         <button>Submit</button>
       </form>
-      <Tasks letters={letters} removeLetter={removeLetter} />
+      <Task comments={comments} removeComment={removeComment} />
     </div>
   )
 }
