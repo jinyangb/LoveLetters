@@ -3,15 +3,16 @@ import { Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import './App.css'
 import PostList from './components/PostList'
+// import PostList from './components/CommentList'
 import Nav from './components/Nav'
 import Posts from './pages/Posts'
 
 function App() {
   const [letters, setLetters] = useState([])
   const [newLetter, setNewLetter] = useState({
-    name: '',
-    date: '',
-    body: ''
+    Name: '',
+    Date: '',
+    Content: ''
   })
 
   const addLetter = (e) => {
@@ -24,25 +25,31 @@ function App() {
     currentLetters.push(addedLetter)
     setLetters(currentLetters)
     setNewLetter({
-      name: '',
-      date: '',
-      body: ''
+      Name: '',
+      Date: '',
+      Content: ''
     })
   }
   const handleChange = (e) => {
-    console.log('test')
+    e.preventDefault()
+    console.log(e.target.value)
     setNewLetter({ ...newLetter, [e.target.name]: e.target.value })
   }
+
   return (
     <div>
-      <header>{/* <Nav /> */}</header>
+      <header>
+        <Nav />
+      </header>
       <body>
         <Switch>
           <Route exact path="/">
             <PostList
               newLetter={newLetter}
-              handleChange={handleChange}
-              addGame={addLetter}
+              handleChange={(e) => {
+                handleChange(e)
+              }}
+              addLetter={addLetter}
             />
           </Route>
           <Route path="/new"></Route>

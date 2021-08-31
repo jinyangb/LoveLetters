@@ -14,8 +14,6 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
   
 
   const addNewLetter = async (formdata) => {
-    // let myNewList = [...letters, newLetter]
-    // manageGames(myNewList)
     try {
       const res = await axios.post(
         process.env.NODE_ENV === 'production'
@@ -23,6 +21,7 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
           : 'http://localhost:3001/letters',
         formdata
       )
+
       return res.data
     } catch (error) {
       console.log(error)
@@ -53,30 +52,28 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
         <TextInput
           type="text"
           value={newLetter.name}
-          onChange={handleChange}
-          name={'name'}
-          placeholder={'name'}
-      
-          
-
+          onChange={(e)=>
+            {handleChange(e)}}
+          name={'Name'}
+          placeholder={'Name'}
         />
         <TextInput
           type="text"
           value={newLetter.date}
-          onChange={handleChange}
-          name={'img'}
-          placeholder={'image'}
+          onChange={(e)=>
+            {handleChange(e)}}
+          name={'Date'}
+          placeholder={'Date'}
           
       
         />
         <TextInput
-          type="text-area"
-          value={newLetter.body}
-          onChange={handleChange}
-          name={'console'}
-          placeholder={'console'}
-          // 
-        
+          type="text"
+          value={newLetter.content}
+          onChange={(e)=>
+            {handleChange(e)}}
+          name={'Content'}
+          placeholder={'Content'}
         />
         <button>Submit</button>
       </form>

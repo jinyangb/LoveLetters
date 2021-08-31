@@ -55,8 +55,8 @@ const TodoList = ({ newLetter, handleChange, addNewLetter }) => {
           type="text"
           value={newComment.name}
           onChange={handleChange}
-          name={'name'}
-          placeholder={'name'}
+          name={'Name'}
+          placeholder={'Name'}
       
           
 
@@ -65,8 +65,8 @@ const TodoList = ({ newLetter, handleChange, addNewLetter }) => {
           type="text"
           value={newComment.date}
           onChange={handleChange}
-          name={'img'}
-          placeholder={'image'}
+          name={'Date'}
+          placeholder={'Date'}
           
       
         />
@@ -74,8 +74,8 @@ const TodoList = ({ newLetter, handleChange, addNewLetter }) => {
           type="text-area"
           value={newComment.body}
           onChange={handleChange}
-          name={'console'}
-          placeholder={'console'}
+          name={'Comment'}
+          placeholder={'Comment'}
           // 
         
         />
