@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import TextInput from './TextInput'
+// import TextInput from './TextInput'
 import axios from 'axios'
 
 const Letters = () => {
@@ -13,6 +13,9 @@ const Letters = () => {
     )
     const [letters, setLetters] = useState
   
+    const handleChange = (e) => {
+      console.log('test')
+      setLetter({ ...newLetter, [e.target.name]: e.target.value })
   
   const addNewLetter = async (formdata) => {
     try {
@@ -50,7 +53,7 @@ const Letters = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={newLetter.name}
+          // value={newLetter.name}
           onChange={(e) => {
             handleChange(e)
           }}
@@ -59,7 +62,7 @@ const Letters = () => {
         />
         <input
           type="text"
-          value={newLetter.date}
+          // value={newLetter.date}
           onChange={(e) => {
             handleChange(e)
           }}
@@ -68,7 +71,7 @@ const Letters = () => {
         />
         <input
           type="text"
-          value={newLetter.content}
+          // value={newLetter.content}
           onChange={(e) => {
             handleChange(e)
           }}
