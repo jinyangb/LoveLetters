@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import TextInput from './TextInput'
 import axios from 'axios'
 
+
 const Comments = ({ newComment, handleChange }) => {
+
+  const [comments, setComments] = useState([])
+
   const addNewComment = async (formdata) => {
     try {
       const res = await axios.post(
@@ -17,20 +21,17 @@ const Comments = ({ newComment, handleChange }) => {
       console.log(error)
     }
   }
-  const getComments = async (formdata) => {
-    try {
-      const res = await axios.get(
-        process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/api/comments`
-          : 'http://localhost:3001/api/comments',
-        formdata
-      )
 
-      return res.data
-    } catch (error) {
-      console.log(error)
-    }
+  const getComments = async () => {
+    const res = await axios.get('http://localhost:3001/api/comments')
+    setComments(res.data.comments)
   }
+
+  useEffect(() => {
+    getComments()
+    
+  }, [])
+
   const removeNewComment = async (formdata) => {
     try {
       const res = await axios.delete(
