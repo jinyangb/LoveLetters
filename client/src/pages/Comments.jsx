@@ -3,9 +3,16 @@ import TextInput from './TextInput'
 import axios from 'axios'
 
 
-const Comments = ({ newComment, handleChange }) => {
+const Comments = () => {
 
+  const [comment, setComment] = useState(
+    {
+      comment: ''
+    }
+  )
   const [comments, setComments] = useState([])
+
+    // Handlechange function goes here
 
   const addNewComment = async (formdata) => {
     try {
@@ -32,56 +39,23 @@ const Comments = ({ newComment, handleChange }) => {
     
   }, [])
 
-  const removeNewComment = async (formdata) => {
-    try {
-      const res = await axios.delete(
-        process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/api/comments`
-          : 'http://localhost:3001/api/comments',
-        formdata
-      )
-
-      return res.data
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('handlesubmit')
-    addNewComment(newComment)
-    removeNewComment(newComment)
+    addNewComment(comment)
   }
   return (
     <div className="list">
       <form onSubmit={handleSubmit}>
+
         <input
           type="text"
-          value={newComment.name}
           onChange={(e) => {
             handleChange(e)
           }}
-          name={'Name'}
-          placeholder={'Name'}
-        />
-        <TextInput
-          type="text"
-          value={newComment.date}
-          onChange={(e) => {
-            handleChange(e)
-          }}
-          name={'Date'}
-          placeholder={'Date'}
-        />
-        <TextInput
-          type="text"
-          value={newComment.content}
-          onChange={(e) => {
-            handleChange(e)
-          }}
-          name={'Content'}
-          placeholder={'Content'}
+          name={'comment'}
+          placeholder={'comment'}
         />
         <button>Submit</button>
       </form>

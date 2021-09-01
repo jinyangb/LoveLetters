@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TextInput from './TextInput'
 import axios from 'axios'
 
-const Home = ({ newLetter, handleChange }) => {
+const Letters = ({ newLetter, handleChange }) => {
   const addNewLetter = async (formdata) => {
     try {
       const res = await axios.post(
@@ -17,20 +17,17 @@ const Home = ({ newLetter, handleChange }) => {
       console.log(error)
     }
   }
-  const getNewLetter = async (formdata) => {
-    try {
-      const res = await axios.get(
-        process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/api/letters`
-          : 'http://localhost:3001/api/letters',
-        formdata
-      )
 
-      return res.data
-    } catch (error) {
-      console.log(error)
-    }
+  const getLetters = async () => {
+    const res = await axios.get('http://localhost:3001/api/letters')
+    setLetters(res.data.letters)
   }
+
+  useEffect(() => {
+    getLetters()
+    
+  }, [])
+
   const removeNewLetter = async (formdata) => {
     try {
       const res = await axios.delete(
@@ -44,18 +41,6 @@ const Home = ({ newLetter, handleChange }) => {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  function TextInput(props) {
-    return (
-      <input
-        name={props.name}
-        type={props.type}
-        value={props.value}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
-      />
-    )
   }
 
   const handleSubmit = (e) => {
@@ -77,7 +62,7 @@ const Home = ({ newLetter, handleChange }) => {
           name={'Name'}
           placeholder={'Name'}
         />
-        <TextInput
+        <input
           type="text"
           value={newLetter.date}
           onChange={(e) => {
@@ -86,7 +71,7 @@ const Home = ({ newLetter, handleChange }) => {
           name={'Date'}
           placeholder={'Date'}
         />
-        <TextInput
+        <input
           type="text"
           value={newLetter.content}
           onChange={(e) => {
@@ -101,4 +86,4 @@ const Home = ({ newLetter, handleChange }) => {
   )
 }
 
-export default Home
+export default Letters
