@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import TextInput from './TextInput'
 import axios from 'axios'
 
@@ -12,7 +12,9 @@ const Comments = () => {
   )
   const [comments, setComments] = useState([])
 
-    // Handlechange function goes here
+  const handleChange = (e) => {
+    console.log('test')
+    setComment({ ...newLetter, [e.target.name]: e.target.value })
 
   const addNewComment = async (formdata) => {
     try {
