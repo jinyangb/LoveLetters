@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import './App.css'
-import PostList from './components/PostList'
 import Nav from './components/Nav'
+import './App.css'
 
 function App() {
   return (
@@ -12,14 +11,11 @@ function App() {
       </header>
       <body>
         <Switch>
-          <Route exact path="/">
-            <PostList />
-          </Route>
-          <Route></Route>
+          <Route exact path="/" component={Letters} />
+          <Route exact path="/comments" component={Comments} />
         </Switch>
       </body>
     </div>
   )
 }
-
 export default App

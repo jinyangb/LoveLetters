@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TextInput from './TextInput'
 import axios from 'axios'
 
-const TodoList = ({ newLetter, handleChange }) => {
+const Home = ({ newLetter, handleChange }) => {
   const addNewLetter = async (formdata) => {
     try {
       const res = await axios.post(
@@ -44,6 +44,18 @@ const TodoList = ({ newLetter, handleChange }) => {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  function TextInput(props) {
+    return (
+      <input
+        name={props.name}
+        type={props.type}
+        value={props.value}
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+      />
+    )
   }
 
   const handleSubmit = (e) => {
@@ -89,4 +101,4 @@ const TodoList = ({ newLetter, handleChange }) => {
   )
 }
 
-export default TodoList
+export default Home

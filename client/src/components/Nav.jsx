@@ -5,8 +5,8 @@ function Nav() {
     <nav className="navbar">
       <h4>Love Letters</h4>
       <div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/">Letters</NavLink>
+        <NavLink to="/comments">Comments</NavLink>
       </div>
     </nav>
   )
