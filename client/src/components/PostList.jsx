@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-import Tasks from './Tasks'
-import Task from './Task'
+// import Tasks from './Tasks'
+// import Task from './Task'
 import TextInput from './TextInput'
-import { useHistory } from 'react-router'
+// import { useHistory } from 'react-router'
 import axios from 'axios'
 
 
-const TodoList = ({ newLetter, handleChange, addLetter }) => {
-  const [letters, manageLetters] = useState([])
-  const [input, setInput] = useState('')
-  const history = useHistory()
+const TodoList = ({ newLetter, handleChange }) => {
+  // const [letters, manageLetters] = useState([])
+  // const [post, setPost] = useState({})
+  // const history = useHistory()
 
-  
+   
 
   const addNewLetter = async (formdata) => {
     try {
       const res = await axios.post(
         process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/letters`
-          : 'http://localhost:3001/letters',
+          ? `${window.location.origin}/api/letters`
+          : 'http://localhost:3001/api/letters',
         formdata
       )
 
@@ -26,14 +26,41 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
     } catch (error) {
       console.log(error)
     }
+  }
+  const getNewLetter = async (formdata) => {
+    try {
+      const res = await axios.get(
+        process.env.NODE_ENV === 'production'
+          ? `${window.location.origin}/api/letters`
+          : 'http://localhost:3001/api/letters',
+        formdata
+      )
 
+      return res.data
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const removeNewLetter = async (formdata) => {
+    try {
+      const res = await axios.delete(
+        process.env.NODE_ENV === 'production'
+          ? `${window.location.origin}/api/letters`
+          : 'http://localhost:3001/api/letters',
+        formdata
+      )
+
+      return res.data
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  const removeLetter = (index) => {
-    let myNewPost = [...letters]
-    myNewPost.splice(index, 1)
-    manageLetters(myNewPost)
-  }
+  // const removeLetter = (index) => {
+  //   let myNewPost = [...letters]
+  //   myNewPost.splice(index, 1)
+  //   manageLetters(myNewPost)
+  // }
 
   // const handleOtherChange = (event) => {
   //   setInput(event.target.value)
@@ -43,13 +70,15 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
     e.preventDefault()
     console.log('handlesubmit')
     addNewLetter(newLetter)
+    getNewLetter(newLetter)
+    removeNewLetter(newLetter)
     
 
   }
   return (
     <div className="list">
       <form onSubmit={handleSubmit} >
-        <TextInput
+        <input
           type="text"
           value={newLetter.name}
           onChange={(e)=>
@@ -77,7 +106,7 @@ const TodoList = ({ newLetter, handleChange, addLetter }) => {
         />
         <button>Submit</button>
       </form>
-      <Tasks letters={letters} removeLetter={removeLetter} />
+      {/* <Tasks letters={letters} removeLetter={removeLetter} /> */}
     </div>
   )
 }

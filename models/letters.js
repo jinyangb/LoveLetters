@@ -3,9 +3,9 @@ const Schema = mongoose.Schema
 
 const Letter = new Schema(
   {
-    name: { type: String },
-    date: { type: String },
-    body: { type: String, required: true }
+    Name: { type: String },
+    Date: { type: String },
+    Content: { type: String, required: true }
   },
   { timestamps: true }
 )

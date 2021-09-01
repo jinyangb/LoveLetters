@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
-import Tasks from './Tasks'
+// import Tasks from './Tasks'
 import Task from './Task'
 import TextInput from './TextInput'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 
 
-const TodoList = ({ newLetter, handleChange, addNewLetter }) => {
+const TodoList = ({ newLetter, handleChange }) => {
   const [games, manageGames] = useState([])
   const [input, setInput] = useState('')
   const history = useHistory()
 
   
 
-  const addNewLetter = async (formdata) => {
+  const addNewComment = async (formdata) => {
     // let myNewList = [...letters, newLetter]
     // manageGames(myNewList)
     console.log('newComment', formdata)

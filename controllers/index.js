@@ -9,7 +9,7 @@ const createLetter = async (req, res) => {
       letter
     })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res.status(500).json({ error: error.response })
   }
 }
 
