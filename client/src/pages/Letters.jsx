@@ -2,7 +2,18 @@ import React, { useState } from 'react'
 import TextInput from './TextInput'
 import axios from 'axios'
 
-const Letters = ({ newLetter, handleChange }) => {
+const Letters = () => {
+  
+    const [letter, setLetter] = useState(
+      {
+        name: '',
+        date: '',
+        content: ''
+      }
+    )
+    const [letters, setLetters] = useState
+  
+  
   const addNewLetter = async (formdata) => {
     try {
       const res = await axios.post(
@@ -28,27 +39,11 @@ const Letters = ({ newLetter, handleChange }) => {
     
   }, [])
 
-  const removeNewLetter = async (formdata) => {
-    try {
-      const res = await axios.delete(
-        process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/api/letters`
-          : 'http://localhost:3001/api/letters',
-        formdata
-      )
-
-      return res.data
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('handlesubmit')
-    addNewLetter(newLetter)
-    getNewLetter(newLetter)
-    removeNewLetter(newLetter)
+    addNewLetter(letter)
   }
   return (
     <div className="list">

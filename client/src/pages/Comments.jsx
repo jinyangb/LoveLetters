@@ -63,4 +63,4 @@ const Comments = () => {
   )
 }
 
-export default TodoList
+export default Comments
