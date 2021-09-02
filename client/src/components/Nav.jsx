@@ -4,9 +4,9 @@ function Nav() {
   return (
     <nav className="navbar">
       <h4>Love Letters</h4>
-      <div>
-        <NavLink to="/">Letters</NavLink>
-        <NavLink to="/comments">Comments</NavLink>
+      <div className="nav">
+        <div className="divOne"><NavLink to="/">Letters</NavLink></div>
+        <div className="divTwo"><NavLink to="/comments">Comments</NavLink></div>
       </div>
     </nav>
   )

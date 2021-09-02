@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+h4 {
+  text-align: center;
+  font-style: oblique;
+  font-size: 30px;
+}
+.nav {
+  align-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
