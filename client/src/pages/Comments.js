@@ -52,7 +52,7 @@ const Comments = () => {
             handleChange(e)
           }}
           name={'comment'}
-          placeholder={'comment'}
+          placeholder={'Comment'}
         />
         <button>Submit</button>
       </form>

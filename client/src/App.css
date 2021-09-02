@@ -46,3 +46,11 @@ h4 {
   text-align: center;
   flex-wrap: wrap;
 }
+body {
+  display: flex;
+  justify-content: center;
+}
+switch {
+  display: flex;
+  justify-content: space-between;
+}
