@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import TextInput from './TextInput'
+
 import axios from 'axios'
 import Letter from '../components/Letter'
 
@@ -54,7 +54,6 @@ const Letters = () => {
       <form onSubmit={handleSubmit} id="post">
         <input
           type="text"
-          // value={newLetter.name}
           onChange={(e) => {
             handleChange(e)
           }}
@@ -63,7 +62,6 @@ const Letters = () => {
         />
         <input
           type="text"
-          // value={newLetter.date}
           onChange={(e) => {
             handleChange(e)
           }}
@@ -72,7 +70,6 @@ const Letters = () => {
         />
         <input
           type="text"
-          // value={newLetter.content}
           onChange={(e) => {
             handleChange(e)
           }}

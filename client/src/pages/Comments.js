@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Comment from '../components/Comment'
 
 const Comments = () => {
   const [comment, setComment] = useState({
@@ -50,14 +51,19 @@ const Comments = () => {
           onChange={(e) => {
             handleChange(e)
           }}
-          name={'comment'}
+          name={'Comment'}
           placeholder={'Comment'}
         />
         <button>Submit</button>
       </form>
-      {comments.map((comment) => (
+      <div>
+        {comments.map((comment) => (
+          <Comment comment={comment} />
+        ))}
+      </div>
+      {/* {comments.map((comment) => (
         <div>{comment.comment}</div>
-      ))}
+      ))} */}
     </div>
   )
 }
