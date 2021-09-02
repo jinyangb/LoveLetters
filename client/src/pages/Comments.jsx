@@ -10,7 +10,7 @@ const Comments = () => {
       comment: ''
     }
   )
-  const [comments, setComments] = useState([])
+  // const [comments, setComments] = useState([])
 
   const handleChange = (e) => {
     console.log('test')

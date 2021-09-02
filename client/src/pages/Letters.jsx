@@ -11,7 +11,7 @@ const Letters = () => {
         content: ''
       }
     )
-    const [letters, setLetters] = useState
+    const [letters, setLetters] = useState([])
   
     const handleChange = (e) => {
       console.log('test')
@@ -34,6 +34,7 @@ const Letters = () => {
 
   const getLetters = async () => {
     const res = await axios.get('http://localhost:3001/api/letters')
+    console.log(res)
     setLetters(res.data.letters)
   }
 
@@ -80,6 +81,14 @@ const Letters = () => {
         />
         <button>Submit</button>
       </form>
+      {letters.map((letter) => {
+        
+       <div> {letter.Name}</div>,
+       <div>{letter.Date}</div>,
+       <div>{letter.Content}</div>
+      
+      })}
+      
     </div>
   )
 }
