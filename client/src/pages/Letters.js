@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import TextInput from './TextInput'
 import axios from 'axios'
+import Letter from '../components/Letter'
 
 const Letters = () => {
   const [letter, setLetter] = useState({
@@ -39,19 +40,6 @@ const Letters = () => {
   useEffect(() => {
     getLetters()
   }, [letter])
-
-  // const deleteLetter = async () => {
-  //   await axios.delete(`http://localhost:3001/api/letters/${letter.id}`)
-  // }
-
-  useEffect(() => {
-    async function deleteLetter() {
-      await axios.delete(`http://localhost:3001/api/${letter.id}`)
-      // setStatus('Delete successful')
-    }
-
-    deleteLetter()
-  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -93,14 +81,11 @@ const Letters = () => {
         />
         <button>Submit</button>
       </form>
-      {letters.map(
-        (letter) => (
-          (<div> {letter.Name}</div>),
-          (<div>{letter.Date}</div>),
-          (<div>{letter.Content}</div>)
-        )
-      )}
-      <button onClick="deleteLetter()">x</button>
+      <div className="letterForm">
+        {letters.map((letter) => (
+          <Letter letter={letter} />
+        ))}
+      </div>
     </div>
   )
 }

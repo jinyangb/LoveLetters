@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import TextInput from './TextInput'
 import axios from 'axios'
 
 const Comments = () => {

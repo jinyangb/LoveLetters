@@ -60,7 +60,7 @@ const updateLetter = async (req, res) => {
 const deleteLetter = async (req, res) => {
   try {
     const { id } = req.params
-    const deleted = await Letter.findByIdAndDelete('id')
+    const deleted = await Letter.findByIdAndDelete(id)
     if (deleted) {
       return res.status(200).send('Letter deleted')
     }
