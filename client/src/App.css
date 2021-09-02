@@ -49,4 +49,5 @@ h4 {
 body {
   display: flex;
   justify-content: center;
+  background-color: antiquewhite;
 }
