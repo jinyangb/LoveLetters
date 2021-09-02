@@ -12,13 +12,13 @@ const Comments = () => {
     console.log('test')
     setComment({ ...comment, [e.target.name]: e.target.value })
   }
-  const addNewComment = async (formdata) => {
+  const addNewComment = async (comment) => {
     try {
       const res = await axios.post(
         process.env.NODE_ENV === 'production'
           ? `${window.location.origin}/api/comments`
           : 'http://localhost:3001/api/comments',
-        formdata
+        comment
       )
 
       return res.data
@@ -34,16 +34,18 @@ const Comments = () => {
 
   useEffect(() => {
     getComments()
-  }, [])
+  }, [comment])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('handlesubmit')
     addNewComment(comment)
+    getComments()
+    document.getElementById('com').reset()
   }
   return (
     <div className="list">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="com">
         <input
           type="text"
           onChange={(e) => {
@@ -54,9 +56,9 @@ const Comments = () => {
         />
         <button>Submit</button>
       </form>
-      {comments.map((comment) => {
-        ;<div>{comment.comment}</div>
-      })}
+      {comments.map((comment) => (
+        <div>{comment.comment}</div>
+      ))}
     </div>
   )
 }

@@ -40,9 +40,18 @@ const Letters = () => {
     getLetters()
   }, [letter])
 
-  const deleteLetter = async () => {
-    await axios.delete(`http://localhost:3001/api/letters/${letter.id}`)
-  }
+  // const deleteLetter = async () => {
+  //   await axios.delete(`http://localhost:3001/api/letters/${letter.id}`)
+  // }
+
+  useEffect(() => {
+    async function deleteLetter() {
+      await axios.delete(`http://localhost:3001/api/${letter.id}`)
+      // setStatus('Delete successful')
+    }
+
+    deleteLetter()
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -91,6 +100,7 @@ const Letters = () => {
           (<div>{letter.Content}</div>)
         )
       )}
+      <button onClick="deleteLetter()">x</button>
     </div>
   )
 }
