@@ -4,6 +4,7 @@ import axios from 'axios'
 const Letter = ({ letter }) => {
   const deleteLetter = async (id) => {
     await axios.delete(`http://localhost:3001/api/letters/${letter._id}`)
+    window.location.reload()
   }
 
   return (

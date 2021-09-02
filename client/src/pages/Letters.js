@@ -53,6 +53,7 @@ const Letters = () => {
     <div className="list">
       <form onSubmit={handleSubmit} id="post">
         <input
+          className="name"
           type="text"
           onChange={(e) => {
             handleChange(e)

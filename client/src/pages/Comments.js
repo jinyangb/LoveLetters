@@ -61,9 +61,6 @@ const Comments = () => {
           <Comment comment={comment} />
         ))}
       </div>
-      {/* {comments.map((comment) => (
-        <div>{comment.comment}</div>
-      ))} */}
     </div>
   )
 }
