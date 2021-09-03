@@ -1,4 +1,4 @@
-# LoveLetters
+# Love Letters
 
 ## Date: 9/03/2021
 
@@ -16,7 +16,7 @@
 
 **_Description_**
 
-This App is designed to be a place you can and reason in. What that means is if you have an agry email or message you want to send to your boss, colleague, friend, or whomever, you can send one! But the great part is that they wot actually get it so there are no hurt feeling, borken ties, or burned bridges. You can get all the feelings out but have no concequences. The best part is that you can save all the rants you have so you can read it later and see how far you've come. Now you have the reason part of this app. It's there to help you reason. Sometimes a nice quote or wise words can help us realize that there are better actions we can take. So if you are feeling frustrated there will be quotes that appear when a button is clicked that may be just what you need.
+This App is designed to be a place you can rant. This is a safe space to express yourself. To write that letter to yourt boss you always wanted to and not get fired because they never actually get it.
 
 **_Technologies Used_**
 
@@ -32,21 +32,19 @@ This app will be deployed with Heroku
 
 #####
 
-![Screenshot](../Letters.png)
+![Screenshot](Letters.png)
 
 #####
 
-![]()
+![Screenshot](Comments.png)
 
 #####
 
-![=]()
+![Screenshot](closeup.png)
 
 **_Future Updates_**
 
-- [ ] Future Update 1
-- [ ] Future Update 2
-- [] Completed Update
-- []
+- [ ] Add User Login
+- [ ] Use Bootstrap
 
 **_Credits_**

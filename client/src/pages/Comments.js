@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Comment from '../components/Comment'
+import BASE_URL from '../globals'
 
 const Comments = () => {
   const [comment, setComment] = useState({
@@ -14,12 +15,7 @@ const Comments = () => {
   }
   const addNewComment = async (comment) => {
     try {
-      const res = await axios.post(
-        process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/api/comments`
-          : 'http://localhost:3001/api/comments',
-        comment
-      )
+      const res = await axios.post(`${BASE_URL}/comments`, comment)
 
       return res.data
     } catch (error) {
@@ -28,7 +24,7 @@ const Comments = () => {
   }
 
   const getComments = async () => {
-    const res = await axios.get('http://localhost:3001/api/comments')
+    const res = await axios.get(`${BASE_URL}/comments`)
     setComments(res.data.comments)
   }
 

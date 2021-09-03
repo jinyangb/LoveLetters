@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Letter from '../components/Letter'
+import BASE_URL from '../globals'
 
 const Letters = () => {
   const [letter, setLetter] = useState({
@@ -17,12 +18,7 @@ const Letters = () => {
 
   const addNewLetter = async (letter) => {
     try {
-      const res = await axios.post(
-        process.env.NODE_ENV === 'production'
-          ? `${window.location.origin}/api/letters`
-          : 'http://localhost:3001/api/letters',
-        letter
-      )
+      const res = await axios.post(`${BASE_URL}/letters`, letter)
 
       return res.data
     } catch (error) {
@@ -31,7 +27,7 @@ const Letters = () => {
   }
 
   const getLetters = async () => {
-    const res = await axios.get('http://localhost:3001/api/letters')
+    const res = await axios.get(`${BASE_URL}/letters`)
     console.log(res)
     setLetters(res.data.letters)
   }
@@ -51,7 +47,7 @@ const Letters = () => {
   return (
     <div className="list">
       <form onSubmit={handleSubmit} id="post">
-        <div>
+        <div className="divone">
           <input
             type="text"
             onChange={(e) => {

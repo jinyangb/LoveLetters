@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from 'axios'
+import BASE_URL from '../globals'
 
 const Letter = ({ letter }) => {
   const deleteLetter = async (id) => {
-    await axios.delete(`http://localhost:3001/api/letters/${letter._id}`)
+    await axios.delete(`${BASE_URL}/letters/${letter._id}`)
     window.location.reload()
   }
 
