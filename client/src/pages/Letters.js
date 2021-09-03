@@ -5,9 +5,9 @@ import BASE_URL from '../globals'
 
 const Letters = () => {
   const [letter, setLetter] = useState({
-    name: '',
-    date: '',
-    content: ''
+    Name: '',
+    Date: '',
+    Content: ''
   })
   const [letters, setLetters] = useState([])
 

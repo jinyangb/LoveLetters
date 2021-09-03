@@ -5,7 +5,7 @@ import BASE_URL from '../globals'
 
 const Comments = () => {
   const [comment, setComment] = useState({
-    comment: ''
+    Comment: ''
   })
   const [comments, setComments] = useState([])
 
