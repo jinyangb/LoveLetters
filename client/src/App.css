@@ -36,6 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
 h4 {
   display: flex;
   flex-direction: column;
@@ -45,26 +46,30 @@ h4 {
   align-content: space-around;
   font-size: 30px;
 }
+
 .nav {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  align-content: space-around;
+  align-content: center;
 }
+
 form {
   display: grid;
   justify-content: center;
   background-color: antiquewhite;
   border-radius: 90px;
 }
+
 body {
   display: grid;
   justify-content: center;
   background-color: antiquewhite;
   border-radius: 90px;
 }
+
 div {
   display: flex;
   flex-direction: column;
@@ -73,6 +78,7 @@ div {
   align-items: center;
   align-content: space-around;
 }
+
 form {
   display: flex;
   flex-direction: column;

@@ -11,6 +11,7 @@ function Nav() {
         <div className="divTwo"><NavLink to="/comments">Comments</NavLink></div>
         <br/>
       </div>
+      <br/>
     </nav>
   )
 }
