@@ -37,7 +37,6 @@ const Comments = () => {
     console.log('handlesubmit')
     addNewComment(comment)
     getComments()
-    // document.getElementById('com').reset()
   }
   return (
     <div className="list">

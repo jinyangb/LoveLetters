@@ -41,7 +41,6 @@ const Letters = () => {
     console.log('handlesubmit')
     addNewLetter(letter)
     getLetters()
-    // document.getElementById('post').reset()
   }
 
   return (

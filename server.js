@@ -4,8 +4,8 @@ const db = require('./db')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const logger = require('morgan')
-// require() imports and middleware here ^ ///////
 const path = require('path')
+// require() imports and middleware here ^ ///////
 
 const PORT = process.env.PORT || 3001
 
