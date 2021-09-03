@@ -83,9 +83,7 @@ const Letters = () => {
         <button>Submit</button>
       </form>
       <div className="letterForm">
-        {letters.map((letter) => (
-          <Letter letter={letter} />
-        ))}
+        {letters ? letters.map((letter) => <Letter letter={letter} />) : null}
       </div>
     </div>
   )

@@ -54,9 +54,9 @@ const Comments = () => {
         <button>Submit</button>
       </form>
       <div>
-        {comments.map((comment) => (
-          <Comment comment={comment} />
-        ))}
+        {comments
+          ? comments.map((comment) => <Comment comment={comment} />)
+          : null}
       </div>
     </div>
   )
