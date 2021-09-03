@@ -9,8 +9,11 @@ const Comment = ({ comment }) => {
 
   return (
     <div>
+      <br />
       <div>{comment.Comment}</div>
-      <button onClick={deleteComment}>x</button>
+      <br />
+      <button onClick={deleteComment}>Hide Forever</button>
+      <br />
     </div>
   )
 }

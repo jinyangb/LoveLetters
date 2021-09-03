@@ -9,10 +9,15 @@ const Letter = ({ letter }) => {
 
   return (
     <div>
+      <br />
       <div> {letter.Name}</div>
+      <br />
       <div>{letter.Date}</div>
+      <br />
       <div>{letter.Content}</div>
-      <button onClick={deleteLetter}>x</button>
+      <br />
+      <button onClick={deleteLetter}>Hide Forever</button>
+      <br />
     </div>
   )
 }

@@ -54,6 +54,7 @@ const Comments = () => {
           name={'Comment'}
           placeholder={'Comment'}
         />
+        <br />
         <button>Submit</button>
       </form>
       <div>

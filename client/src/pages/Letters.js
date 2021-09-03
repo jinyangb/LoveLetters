@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import axios from 'axios'
 import Letter from '../components/Letter'
 
@@ -52,31 +51,39 @@ const Letters = () => {
   return (
     <div className="list">
       <form onSubmit={handleSubmit} id="post">
-        <input
-          className="name"
-          type="text"
-          onChange={(e) => {
-            handleChange(e)
-          }}
-          name={'Name'}
-          placeholder={'Name'}
-        />
-        <input
-          type="text"
-          onChange={(e) => {
-            handleChange(e)
-          }}
-          name={'Date'}
-          placeholder={'Date'}
-        />
-        <input
-          type="text"
-          onChange={(e) => {
-            handleChange(e)
-          }}
-          name={'Content'}
-          placeholder={'Content'}
-        />
+        <div>
+          <input
+            type="text"
+            onChange={(e) => {
+              handleChange(e)
+            }}
+            name={'Name'}
+            placeholder={'Name'}
+          />
+        </div>
+        <br />
+        <div>
+          <input
+            type="text"
+            onChange={(e) => {
+              handleChange(e)
+            }}
+            name={'Date'}
+            placeholder={'Date'}
+          />
+        </div>
+        <br />
+        <div>
+          <input
+            type="text"
+            onChange={(e) => {
+              handleChange(e)
+            }}
+            name={'Content'}
+            placeholder={'Content'}
+          />
+        </div>
+        <br />
         <button>Submit</button>
       </form>
       <div className="letterForm">
